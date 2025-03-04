@@ -54,18 +54,20 @@
         const agreeBtn = document.getElementById('agreeBtn');
         const disagreeBtn = document.getElementById('disagreeBtn');
 
+        function increaseButtonSize() {
+            let currentSize = parseFloat(getComputedStyle(agreeBtn).fontSize);
+            let newSize = currentSize + 5;
+            agreeBtn.style.fontSize = newSize + 'px';
+            agreeBtn.style.padding = (parseFloat(getComputedStyle(agreeBtn).paddingTop) + 2) + 'px'+ (parseFloat(getComputedStyle(agreeBtn).paddingLeft) + 4) + 'px';
+        }
+
         // 为同意按钮添加点击事件
         agreeBtn.addEventListener('click', function () {
             alert('太好啦，我们和好吧！');
         });
 
         // 为不同意按钮添加点击事件
-        disagreeBtn.addEventListener('click', function () {
-            let currentSize = parseFloat(getComputedStyle(agreeBtn).fontSize);
-            let newSize = currentSize + 5;
-            agreeBtn.style.fontSize = newSize + 'px';
-            agreeBtn.style.padding = (parseFloat(getComputedStyle(agreeBtn).paddingTop) + 2) + 'px ' + (parseFloat(getComputedStyle(agreeBtn).paddingLeft) + 4) + 'px';
-        });
+        disagreeBtn.addEventListener('click', increaseButtonSize);
     </script>
 </body>
 
